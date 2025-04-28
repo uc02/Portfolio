@@ -1,10 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
-import { letters } from '../data'
+import { letters, professionTexts } from '../data'
 
 const Hero = () => {
 
   const [hoveredLetter, setHoveredLetter] = useState(null)
+  const [currentText, setCurrentText] = useState(professionTexts[0])
+  let currentIndex = 0 
+  const [isRotating, setIsRotation] = useState(false)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsRotation(true)
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % professionTexts.length
+        setCurrentText(professionTexts[currentIndex])
+        setIsRotation(false)
+      }, 300)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  },[])
+
 
   return (
     <div className='w-full h-screen flex flex-col justify-center items-center'>
@@ -19,13 +36,21 @@ const Hero = () => {
               onMouseEnter={() => setHoveredLetter(index)}
               onMouseLeave={() => setHoveredLetter(null)}>
               {letter.char}
-                <img 
+                <img  
                 src={letter.img} 
                 alt={`Hover image ${index + 1}`} 
                 className={`xl:h-36 h-24 absolute bottom-full -translate-x-1/2 ${letter.rotate} 
                 ${hoveredLetter === index ? 'visible' : 'invisible'}`} />
               </span>
             ))}
+          </span>
+          <span className='xl:text-6xl md:text-4xl text-2xl tracking-wider xl:py-4 py-2 overflow-hidden'>
+            I'm 
+            <span className={`inline-block xl:w-[380px] md:w-[240px] w-[160px] lg:ml-6 ml-2 font-extrabold
+              ${isRotating ? 'rotate-[100deg]' : 'rotate-0'} transform origin-left transition-transform duration-300 ease-out
+              `}> {currentText}
+              </span>{' '} 
+            Web Developer
           </span>
         </h1>
       </div>
