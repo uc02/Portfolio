@@ -10,9 +10,9 @@ export const professionTexts = ['a Front End', 'a Back End', 'a Full Stack']
 
 export const socialIcons = [
   { icon: 'bx bxl-instagram-alt' },
-  { icon: 'bx bxl-youtube' },
+  { icon: 'bx bxl-github' },
   { icon: 'bx bxl-twitter' },
-  { icon: 'bx bxl-facebook-square' },
+  { icon: 'bx bxl-reddit' },
 ]
 
 export const aboutText = `Upendra is a dedicated full-stack web developer with a deep passion for building
