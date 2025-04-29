@@ -32,8 +32,8 @@ const Hero = () => {
       className='w-full h-screen flex flex-col justify-center items-center isolate relative z-10'>
       <Navbar />
       <div className='flex flex-col md:items-center items-start xl:gap-y-10 gap-y-3 xl:mb-0 md:mb-20 mb-0'>
-        <h1 className='flex flex-col xl:space-y-8 md:space-y-4 space-y-2 xl:text-6xl md:text-4xl text-3xl md:font-normal font-bolder'>
-          <span className='flex'>
+        <h1 className='flex flex-col xl:space-y-8 md:space-y-4 space-y-2 xl:text-6xl md:text-4xl text-3xl md:font-normal font-bolder mt-8 md:mt-0'>
+          <span className='flex mx-auto md:mx-0'>
             {letters.map((letter, index) => (
               <span
                 key={index}
@@ -49,10 +49,10 @@ const Hero = () => {
               </span>
             ))}
           </span>
-          <span className='xl:text-6xl md:text-4xl text-2xl tracking-wider xl:py-4 py-2 overflow-hidden'>
+          <span className='xl:text-6xl md:text-4xl text-2xl tracking-wider xl:py-4 py-2 overflow-hidden text-center'>
             I'm
             <span className={`inline-block xl:w-[380px] md:w-[240px] w-[160px] lg:ml-6 ml-2 font-extrabold
-              ${isRotating ? 'rotate-[100deg]' : 'rotate-0'} transform origin-left transition-transform duration-300 ease-out
+              ${isRotating ? 'hidden md:rotate-[100deg]' : 'rotate-0'} transform origin-left transition-transform duration-300 ease-out
               `}> {currentText}
             </span>{' '}
             Web Developer
@@ -68,7 +68,7 @@ const Hero = () => {
           <i className={`bx ${isTextVisible ? 'bx-book-alt' : 'bx-book-open'}`}></i>
         </button>
 
-        <div className='flex md:gap-12 gap-2 mr-auto'>
+        <div className='flex md:gap-12 gap-2 mr-auto absolute md:relative left-4 md:left-auto top-20 md:top-auto flex-col md:flex-row'>
           {socialIcons.map((social, index) => (
             <a
               href=""
