@@ -1,46 +1,103 @@
-import React from 'react'
+import React, { use, useEffect, useRef, useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
 
 const Navbar = () => {
 
   const { darkMode, toggleDarkMode } = useTheme()
+  const [activeSelection, setActiveSelection] = useState('home')
+  const isScrollingRef = useRef(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(isScrollingRef.current) return
+
+      const sections = ["home", "services", "contact"]
+      sections.forEach((sectionId) =>{
+        const element = document.getElementsById(sectionId)
+        if(element){
+          const {top, bottom} = element.getBoundingClientRect()
+          if(top <= 100 && bottom >= 100){
+            setActiveSelection(sectionId)
+          }
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  },[])
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault()
+    setActiveSelection(sectionId)
+    isScrollingRef.current = true;
+    const element = document.getElementById(sectionId)
+    element?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      isScrollingRef.current = false
+    }, 1000)
+  }
+
 
   return (
-    <div className='w-full md:h-12 sm:h-14 h-18 flex justify-between items-center xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 fixed top-0 z-50 bg-white dark:bg-gray-900 transition-colors duration-500 '>
+    <div className='w-full md:h-12 sm:h-14 h-18 flex justify-between items-center xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 fixed top-0 z-50 bg-white dark:bg-gray-900 transition-colors duration-500'>
       <div className='flex items-center sm:gap-x-4 gap-x-2'>
         <a href="#" className='md:text-2xl sm:text-xl text-lg '>
           Upendra
         </a>
-        <i 
+        <i
           className={`
             ${darkMode ? 'bx bx-sun' : 'bx bx-moon'} 
             md:text-3xl sm:text-2xl text-xl text-gray-600 dark:text-gray-200 sm:ml-4 ml-2 cursor-pointer`}
           onClick={toggleDarkMode}
-          ></i>
+        ></i>
       </div>
       <div>
         <a
-          href="#"
-          className='group lg:text-lg md:text-base text-sm font-light text-red-500 dark:text-yellow-500 lg:mr-12 mr-8 tracking-wide relative'
+          href="#home"
+          className={`group lg:text-lg md:text-base text-sm font-light  lg:mr-12 mr-8 tracking-wide relative 
+            ${activeSelection === "home" ?
+              'text-red-500 dark:text-yellow-500 ' :
+              'text-gray-600 dark:text-white '} `}
+            onClick={(e) => handleNavClick(e,'home')}
         >
           Home
-          <span className='absolute -bottom-1 left-0 w-full h-[1px] bg-red-500 dark:bg-yellow-500 transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300'></span>
+          <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-red-500 dark:bg-yellow-500 transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300 
+            ${activeSelection === "home" ?
+              'bg-red-500 dark:bg-yellow-500 scale-x-100' :
+              'bg-gray-600 dark:bg-white scale-x-0'}`}
+          ></span>
         </a>
 
         <a
-          href="#"
-          className='group lg:text-lg md:text-base text-sm font-light text-gray-600 dark:text-white lg:mr-12 mr-8 tracking-wide relative'
+          href="#services"
+          className={`group lg:text-lg md:text-base text-sm font-light text-gray-600 dark:text-white lg:mr-12 mr-8 tracking-wide relative 
+            ${activeSelection === "services" ?
+              'text-red-500 dark:text-yellow-500 ' :
+              'text-gray-600 dark:text-white '}`}
+              onClick={(e) => handleNavClick(e,'services')}
         >
           Services
-          <span className='absolute -bottom-1 left-0 w-full h-[1px] bg-gray-600 dark:bg-white transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300'></span>
+          <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-gray-600 dark:bg-white transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300 
+             ${activeSelection === "services" ?
+              'bg-red-500 dark:bg-yellow-500 scale-x-100' :
+              'bg-gray-600 dark:bg-white scale-x-0'}`}></span>
         </a>
 
         <a
-          href="#"
-          className='group lg:text-lg md:text-base text-sm font-light text-gray-600 dark:text-white lg:mr-12 mr-8 tracking-wide relative'
+          href="#contact"
+          className={`group lg:text-lg md:text-base text-sm font-light text-gray-600 dark:text-white lg:mr-12 mr-8 tracking-wide relative
+            ${activeSelection === "contact" ?
+              'text-red-500 dark:text-yellow-500 ' :
+              'text-gray-600 dark:text-white '}`}
+              onClick={(e) => handleNavClick(e,'contact')}
         >
           Contact
-          <span className='absolute -bottom-1 left-0 w-full h-[1px] bg-gray-600 dark:bg-white transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300'></span>
+          <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-gray-600 dark:bg-white transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300 
+             ${activeSelection === "contact" ?
+              'bg-red-500 dark:bg-yellow-500 scale-x-100' :
+              'bg-gray-600 dark:bg-white scale-x-0'}`}></span>
         </a>
       </div>
     </div>
