@@ -22,53 +22,11 @@ combine functionality, efficiency, and aesthetics. His expertise spans across
 technologies such as HTML, CSS, JavaScript, React, and Node.js, allowing him to
 develop fully responsive, interactive, and scalable applications tailored to meet
 diverse client needs. From conceptualizing innovative ideas to implementing robust
-solutions, Nick takes a meticulous approach to every project he undertakes. He has a
-keen eye for UI/UX design, ensuring that every website or application he builds is not
-only visually appealing but also intuitive and user-friendly. His commitment to
-performance optimization allows him to deliver fast-loading websites with smooth
-navigation, ensuring a flawless experience across all devices and screen sizes. Nick's
-back-end skills complement his front-end expertise, enabling him to create secure and
-efficient server-side architectures using databases like MongoDB and MySQL. He is
-well-versed in API development, authentication, and data handling, which ensures that
-his applications operate seamlessly and securely. His ability to bridge the gap
-between design and functionality makes him a well-rounded developer capable of
-handling complex projects from start to finish. Beyond his technical skills, Nick is
-an enthusiastic learner who continuously explores emerging technologies and stays up
-to date with the latest industry trends. He is an active participant in the web
-development community, engaging in discussions, contributing to open-source projects,
-and sharing insights with fellow developers. His belief in continuous growth and
-innovation drives him to push boundaries and refine his skills with every project. For
-Nick, web development is more than just writing code—it's about creating meaningful
-digital experiences that leave a lasting impact. Whether he's designing a sleek
-landing page, developing a complex web application, or optimizing an existing
-platform, he approaches every challenge with dedication, creativity, and precision.
-His goal is to build solutions that not only meet client expectations but also elevate
-the standard of web development, ensuring that every project he works on stands out in
-the digital landscape.`
+solutions`
 
 export const skillCards = [
-  {
-    icon: 'bx bx-pen',
-    title: 'Design',
-    description:
-      'Design is all about creating visually appealing and user-friendly interfaces. I specialize in UI/UX design, ensuring every project balances aesthetics with functionality. Using tools like Figma and Adobe XD, I craft intuitive layouts that enhance user experience. From wireframes to high-fidelity prototypes, I focus on clean, minimal, and modern designs tailored for web and mobile applications.',
-    projectCount: 3,
-    hoverPosition: {
-      large: 'bottom',
-      small: 'bottom',
-    },
-  },
-  {
-    icon: 'bx bx-camera',
-    title: 'Photography',
-    description:
-      'Photography is an essential part of digital content creation, capturing high-quality visuals that enhance branding and storytelling. I have experience in portrait, landscape, and product photography, ensuring every image is edited and optimized for the web. Understanding lighting, composition, and post-processing allows me to create compelling images that elevate visual communication across various platforms.',
-    projectCount: 4,
-    hoverPosition: {
-      large: 'bottom',
-      small: 'bottom',
-    },
-  },
+  
+  
   {
     icon: 'bx bxs-file-doc',
     title: 'Front-End Dev',
@@ -84,7 +42,7 @@ export const skillCards = [
     icon: 'bx bxs-devices',
     title: 'RWD',
     description:
-      "In today's digital world, ensuring a seamless user experience across all devices is crucial. I implement responsive design techniques using modern CSS frameworks like Tailwind CSS and Bootstrap. By employing fluid grids, flexible layouts, and media queries, I create web pages that look great and function perfectly on desktops, tablets, and smartphones.",
+      "In today's digital world, ensuring a seamless user experience across all devices is crucial. I implement responsive design techniques using modern CSS frameworks like Tailwind CSS. By employing fluid grids, flexible layouts, and media queries, I create web pages that look great and function perfectly on desktops, tablets, and smartphones.",
     projectCount: 3,
     hoverPosition: {
       large: 'top',
@@ -101,16 +59,5 @@ export const skillCards = [
       large: 'top',
       small: 'bottom',
     },
-  },
-  {
-    icon: 'bx bxl-github',
-    title: 'Git Version Control',
-    description:
-      'Version control is essential for modern web development, and Git is my go-to tool for managing code efficiently. I use GitHub for collaboration, handling pull requests, merging branches, and tracking project changes. Whether working solo or in a team, I ensure code is well-documented, structured, and easily maintainable through proper versioning practices.',
-    projectCount: 3,
-    hoverPosition: {
-      large: 'top',
-      small: 'bottom',
-    },
-  },
+  }
 ]
