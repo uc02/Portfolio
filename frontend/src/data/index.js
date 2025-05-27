@@ -34,7 +34,7 @@ export const skillCards = [
       'Front-end development is about bringing designs to life through clean and efficient code. I specialize in HTML, CSS, and JavaScript, along with frameworks like React to build dynamic and interactive web applications. My focus is on performance, accessibility, and responsiveness, ensuring that every website functions flawlessly across all devices and screen sizes.',
     projectCount: 4,
     hoverPosition: {
-      large: 'bottom',
+      large: 'top',
       small: 'bottom',
     },
   },
